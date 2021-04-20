@@ -1,0 +1,225 @@
+.header-container{
+  margin: 0;
+  display: flex;
+}
+.App{
+  background-color: #87CEEB;
+}
+.header-container-nav{
+  margin-top: 0.5%;
+  display: flex;
+  justify-content: space-around;
+  /* max-width: 8%; */
+}
+
+.header{
+  margin: 0;
+  text-align: center;
+}
+.header-heading{
+ margin-left: 30%;
+}
+.header-heading-user{
+  margin-left: 30%;
+}
+div.dropdown-menu.show{
+     min-width: 5.5rem;
+}
+.dropdown-menu.show{
+  font-size: 14px;
+  margin-left: -2px;
+}
+a.dropdown-item{
+      padding: .10rem 2rem;
+      font-weight: 350;
+}
+button#menu-align-right.dropdown-toggle.btn.btb-primary{
+  background-color: red;
+}
+#menu-align-right{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  min-width: 5.5em;
+  width: 8%;
+}
+.date-input{
+  /* display: flex;
+  justify-content: space-between; */
+}
+.form-group-date{
+  margin-right: 8%;
+  display: inline-block;
+}
+.form-group-year{
+  margin-right: 10%;
+  display: inline-block;
+}
+.form-group-cvv{
+  margin-right: 10%;
+  display: inline-block;
+}
+
+.container{
+  /* border: 1px solid #000065; */
+  background-color: #87CEFA;
+  height: 100vh;
+}
+.form-div{
+
+  /* margin-top: -10%; */
+  border: 1px solid #71C8FF;
+  width: 50%;
+  margin: auto;
+  background-color: white;
+  box-shadow: 2px 2px 45px 4px #71C8FF;
+  border-radius: 10px;
+  /* position: absolute; */
+}
+.form{
+  margin: 25% 5% 5%;
+  /* border: 1px solid black; */
+}
+.cardDisplay{
+  border: 1px solid black;
+  width: 35%;
+  margin: auto;
+  border-radius: 10px;
+  height: 32vh;
+  background-image: url("credit.png");
+  color: white;
+  font-size: 14px;
+  margin-bottom: -10vh;
+  z-index: 9;
+  position: relative;
+
+
+}
+.cardNumberDisplay{
+  /* margin-top: 10px; */
+  align-items: center;
+  /* border: 1px solid blue; */
+  /* margin-top: 30px; */
+  height: 4vh;
+  margin: 30px 5vh 0px 5vh;
+
+}
+.cardHolder{
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-top: 5vh;
+  height: 7vh;
+  width: 65%;
+  margin-left: 20px;
+  display: inline-block;
+}
+.Expires{
+  margin-left: 20px;
+  /* border: 1px solid white; */
+  display: inline-block;
+  height: 7vh;
+  position: absolute;
+  margin-top: 5vh;
+  width: 20%;
+}
+.paragraph-card-holder{
+  margin: 0;
+}
+.heading-card-holder{
+  margin: 0;
+}
+.card-top{
+  height: 10vh;
+  /* border: 1px solid red; */
+}
+
+.image{
+  width: 14%;
+  margin: 20px;
+  display: inline-block;
+}
+.card-top-name{
+  position: absolute;
+  margin-top: 3px;
+  margin-left: 46%;
+  display: inline-block;
+}
+.cardDisplay-stripe{
+  margin-top: 4vh;
+}
+.cardHolder-cvv{
+  margin-top: 1vh;
+  /* border: 1px solid blue; */
+}
+.paragraph-card-holder-h{
+  text-align: right;
+  margin: 0;
+  width: 90%;
+  margin: auto;
+}
+.heading-card-holder-h{
+  text-align: right;
+  background-color: white;
+  color: black;
+  margin: 0;
+  width: 90%;
+  margin: auto;
+  padding: 5px;
+  border-redius: 5px;
+  height: 4.5vh;
+
+}
+
+.submit-button{
+  margin-top: 12px;
+  background-color: blue;
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  /* margin: 0; */
+}
+.image-stripe{
+  width: 100%;
+  height: 7vh;
+  opacity: 0.9;
+}
+
+.card-to-backSide{
+margin-top: 3vh;
+}
+.card-top-name-backSide{
+  text-align: right;
+  margin-top: 5vh;
+  width: 90%;
+  margin: auto;
+}
+.getCVV{
+  margin-top: 10vh;
+width: 66%;
+text-align: right;
+/* margin: auto; */
+  /* border: 1px solid red; */
+}
+.getCVV-button{
+  border: 1px solid gray;
+}
+.card-details{
+  margin-bottom: 10vh;
+}
+.header-stomble{
+  margin-top: 3vh;
+  text-align: center;
+  margin-bottom: 4vh;
+}
+
+.home{
+  display: inline-block;
+  margin-right: 6px;
+}
+.account{
+  display: inline-block;
+}
