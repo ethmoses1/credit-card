@@ -53,8 +53,10 @@ updateInputValueCardName(e){
   render() {
     const pageName = 'Card';
     return (
-      <div className="container">
+      <div>
       <Header page = {pageName} className="header-heading-user"/>
+      <div className="container">
+
        <div className="card-details">
        </div>
 
@@ -112,6 +114,7 @@ updateInputValueCardName(e){
       :
       <button onClick={this.cvvSelectFront} className="getCVV-button">Get Card</button>  }
     </div>
+      </div>
       </div>
     );
   }

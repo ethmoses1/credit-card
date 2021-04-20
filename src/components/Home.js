@@ -124,8 +124,10 @@ addUser = event =>{
     const pageName = 'Stomble Saver'
     const defaultOption = this.state.months[5];
     return (
-      <div className="container">
+      <div>
+
       <Header page = {pageName} />
+      <div className="container">
 
       <div >
         <h3 className="header-stomble">Save Your Card Details</h3>
@@ -214,7 +216,7 @@ addUser = event =>{
 
 
       </div>
-
+</div>
     );
   }
 

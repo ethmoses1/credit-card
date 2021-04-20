@@ -1,6 +1,9 @@
 .header-container{
   margin: 0;
   display: flex;
+  background-color: black;
+  color: white;
+  height: 8vh;
 }
 .App{
   background-color: #87CEEB;
@@ -87,7 +90,7 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   width: 35%;
   margin: auto;
   border-radius: 10px;
-  height: 32vh;
+  height: 31vh;
   background-image: url("credit.png");
   color: white;
   font-size: 14px;
@@ -211,9 +214,11 @@ text-align: right;
   margin-bottom: 10vh;
 }
 .header-stomble{
-  margin-top: 3vh;
+
+  margin-top: 1vh;
   text-align: center;
-  margin-bottom: 4vh;
+
+  margin-bottom: 1vh;
 }
 
 .home{
