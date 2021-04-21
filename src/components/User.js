@@ -9,11 +9,12 @@ import Dropdown from 'react-bootstrap/Dropdown'
 class User extends Component {
   constructor(props) {
     super(props);
-    this.state = {setter: true, value: '', cardNameSearch: '' ,cardName: '', cardNumber: '', year: '', month: '', cvv: '' };
+    this.state = {setter: true, value: '', cardNameSearch: '' ,cardName: '', cardNumber: '', year: '', month: '', cvv: '', error: '' };
     this.cvvSelect = this.cvvSelect.bind(this);
     this.fetchCard = this.fetchCard.bind(this);
     this.updateInputValueCardName = this.updateInputValueCardName.bind(this);
     this.cvvSelectFront = this.cvvSelectFront.bind(this);
+    // this.componentDidMount = this.componentDidMount.bind(this);
   }
 
 cvvSelect(e){
@@ -26,9 +27,12 @@ cvvSelectFront(e){
 
 fetchCard (e){
   e.preventDefault();
+  this.setState({cardName: ''});
+
   const db = firestore;
   const docRef = db.collection("users")
   docRef.get().then((querySnapShot) =>{
+    const users = [];
     querySnapShot.forEach((user) => {
       if(user.data().cardName.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
         console.log(user.data())
@@ -36,13 +40,33 @@ fetchCard (e){
         this.setState({cardNumber: user.data().cardNumber})
         this.setState({year: user.data().year})
         this.setState({month:  user.data().title})
-        this.setState({cvv: user.data().cvv})
+        this.setState({cvv: user.data().cvv});
+
+
+      }else{
+        users.push(user.data().cardName);
       }
     });
+    this.state.cardName ?
+    // users.map((user) =>{
+    //   if(user.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
+        console.log("user found")
+      // }{
 
-    // console.log(querySnapShot.data());
+      //   console.log('No card information by that name');
+      // }
+    // })
+    : this.setState({error: 'No card information by that name'});;
 
   })
+
+   setTimeout(
+    function() {
+        this.setState({ error: '' });
+    }
+    .bind(this),
+    3000
+);
 }
 
 updateInputValueCardName(e){
@@ -50,11 +74,13 @@ updateInputValueCardName(e){
 }
 
 
+
   render() {
-    const pageName = 'Card';
+    const pageName = 'Storred Card Details';
     return (
       <div>
       <Header page = {pageName} className="header-heading-user"/>
+      <p className="heading-error">{this.state.error}</p>
       <div className="container">
 
        <div className="card-details">
@@ -62,12 +88,14 @@ updateInputValueCardName(e){
 
       <div className="form-div">
         <form onSubmit={this.fetchCard}>
-
+        <div className="form-control-searchCard">
           <div class="form-group">
           <label for="formGroupExampleInput2">Card Name</label>
+
           <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="John Doves"  onChange={this.updateInputValueCardName}/>
           </div>
-       <button className="submit-button">Submit</button>
+         <button className="submit-button">Submit</button>
+        </div>
       </form>
       </div>
 
