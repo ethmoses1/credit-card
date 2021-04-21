@@ -8,6 +8,9 @@
   height: 8vh;
   font-family: 'Permanent Marker', cursive;
 }
+.header-div{
+position: relative;
+}
 .App{
   background-color: #87CEEB;
 }

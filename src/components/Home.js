@@ -9,10 +9,7 @@ import firestore from './firebase';
 class Home extends Component {
     constructor() {
       super();
-      const today = new Date(),
-      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-
-      this.state = {date: date, startDate: '',
+      this.state = {startDate: '',
                     months: ["01", "02", "03","04","05","06","07","08","09","10","11","12"],
                     years: ["2021","2022","2023","2024","2025","2026","2027","2028","2029", "2030"],
                      title: '06', year: '2021', cvv: '', cardNumber: '6011 2312 3890 4238', cardName: 'John Doves', card: '', expiry: '', setter: false, showMenu: false,
@@ -103,9 +100,7 @@ addUser = event =>{
 showMenu(event) {
   event.preventDefault();
 
-  this.setState({ showMenu: true }, () => {
-    document.addEventListener('click', this.closeMenu);
-  });
+    this.setState({ showMenu: !this.state.open });
  }
  closeMenu() {
     this.setState({ showMenu: false }, () => {
@@ -119,27 +114,11 @@ showMenu(event) {
     const defaultOption = this.state.months[5];
     return (
       <div>
-        <div>
+        <div className="header-div">
         <Header page = {pageName} />
         </div>
 
-        <button onClick={this.showMenu}>
-                Show menu
-              </button>
-
-              {
-                this.state.showMenu
-                  ? (
-                    <div className="menu">
-                      <button> Menu item 1 </button>
-                      <button> Menu item 2 </button>
-                      <button> Menu item 3 </button>
-                    </div>
-                  )
-                  : (
-                    null
-                  )
-              }
+    
 
 
         <div className="container">
