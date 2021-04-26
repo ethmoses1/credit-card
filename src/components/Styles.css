@@ -165,8 +165,14 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
 .card-top-name{
   position: absolute;
   margin-top: 3px;
-  margin-left: 46%;
+  margin-left: 38%;
   display: inline-block;
+  text-align: right;
+  /* text-align: right; */
+  /* margin-top: 5vh;
+  width: 90%; */
+  margin: auto;
+  width: 76%;
 }
 .cardDisplay-stripe{
   margin-top: 4vh;
@@ -295,6 +301,14 @@ text-align: right;
     margin-top: 3px;
     margin-left: 36%;
     display: inline-block;
+    text-align: right;
+    /* text-align: right; */
+    /* margin-top: 5vh;
+    width: 90%; */
+    margin: auto;
+    width: 76%;
+
+
   }
   .header {
     margin: 0;
@@ -336,6 +350,6 @@ text-align: right;
   }
   .header-heading{
     margin-top: 2%;
-   margin-left: 15%;
+   margin-left: 10%;
   }
 }

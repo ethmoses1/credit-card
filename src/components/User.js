@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 class User extends Component {
   constructor(props) {
     super(props);
-    this.state = {setter: true, value: '', cardNameSearch: '' ,cardName: '', cardNumber: '', year: '', month: '', cvv: '', error: '' };
+    this.state = {setter: true, value: '', cardNameSearch: '' ,cardName: '', cardNumber: '', year: '', month: '', cvv: '', error: '' , cardType: 'DISCOVER'};
     this.cvvSelect = this.cvvSelect.bind(this);
     this.fetchCard = this.fetchCard.bind(this);
     this.updateInputValueCardName = this.updateInputValueCardName.bind(this);
@@ -50,7 +50,35 @@ fetchCard (e){
         if(user.data().cardName.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
           // console.log(user.data())
           this.setState({cardName: user.data().cardName})
-          this.setState({cardNumber: user.data().cardNumber})
+          this.setState({cardNumber: user.data().cardNumber});
+
+           const check = [];
+           console.log(check);
+
+           var stringToArray = user.data().cardNumber.split('');
+           for (var i = 0; i < stringToArray.length; i++) {
+             if(stringToArray[i] != '_' && stringToArray[i] != ' '){
+               check.push(stringToArray[i]);
+             }
+           }
+
+           if(check[0] == '4' && check[1] == '5' && check[2] == '1' && check[3] == '6'){
+             console.log("visa");
+             this.setState({cardType: 'VISA'})
+           }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
+            console.log("DISCOVER");
+            this.setState({cardType: 'DISCOVER'})
+          }else if (check[0] == '5' && check[1] == '2' && check[2] == '1' && check[3] == '7') {
+             console.log("mastercard");
+             this.setState({cardType: 'MASTERCARD'})
+           }else if (check[0] == '3' && check[1] == '7' && check[2] == '5' && check[3] == '4'){
+             console.log("amax")
+             this.setState({cardType: 'AMAX'})
+           }
+
+
+
+
           this.setState({year: user.data().year})
           this.setState({month:  user.data().title})
           this.setState({cvv: user.data().cvv});
@@ -113,7 +141,7 @@ updateInputValueCardName(e){
       <div className="cardDisplay">
        <div className="card-top">
          <img src="https://freepikpsd.com/wp-content/uploads/2019/10/credit-card-chip-png-4-Transparent-Images.png" alt="tht "  className="image"/>
-         <h5 className="card-top-name" > DISCOVER</h5>
+         <h5 className="card-top-name" > {this.state.cardType}</h5>
        </div>
 
       <div className="cardNumberDisplay">
@@ -142,7 +170,7 @@ updateInputValueCardName(e){
       </div>
 
        <div className="card-to-backSide">
-         <h5 className="card-top-name-backSide" > DISCOVER</h5>
+         <h5 className="card-top-name-backSide" > {this.state.cardType}</h5>
        </div>
        </div>
     }

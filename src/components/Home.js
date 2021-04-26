@@ -12,7 +12,7 @@ class Home extends Component {
       this.state = {startDate: '',
                     months: ["01", "02", "03","04","05","06","07","08","09","10","11","12"],
                     years: ["2021","2022","2023","2024","2025","2026","2027","2028","2029", "2030"],
-                     title: '06', year: '2021', cvv: '', cardNumber: '6011 2312 3890 4238', cardName: 'John Doves', card: '', expiry: '', setter: false, showMenu: false,
+                     title: '06', year: '2021', cvv: '', cardNumber: '6011 2312 3890 4238', cardName: 'John Doves', card: '', expiry: '', setter: false, showMenu: false, cardType: ''
                    };
       this.handleSelectMonth = this.handleSelectMonth.bind(this);
       this.handleSelectYear = this.handleSelectYear.bind(this);
@@ -29,6 +29,33 @@ _onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
         this.setState({cardNumber: e.target.value});
         this.setState({setter: false});
+
+       let x = e.target.value;
+        const check = [];
+        console.log(check);
+
+        var stringToArray = x.split('');
+        for (var i = 0; i < stringToArray.length; i++) {
+          if(stringToArray[i] != '_' && stringToArray[i] != ' '){
+            check.push(stringToArray[i]);
+          }
+        }
+
+
+      if(check[0] == '4' && check[1] == '5' && check[2] == '1' && check[3] == '6'){
+        console.log("visa");
+        this.setState({cardType: 'VISA'})
+      }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
+       console.log("DISCOVER");
+       this.setState({cardType: 'DISCOVER'})
+     }else if (check[0] == '5' && check[1] == '2' && check[2] == '1' && check[3] == '7') {
+        console.log("mastercard");
+        this.setState({cardType: 'MASTERCARD'})
+      }else if (check[0] == '3' && check[1] == '7' && check[2] == '5' && check[3] == '4'){
+        console.log("amax")
+        this.setState({cardType: 'AMAX'})
+      }
+
 
       }
 
@@ -55,8 +82,10 @@ handleSelectMonth(e){
   updateInputValueCardNumber(e){
     // console.log(e.target.value);
     let x = e.target.value;
+
     this.setState({cardNumber: e.target.value})
     this.setState({setter: false});
+
 
   }
 
@@ -134,6 +163,28 @@ addUser = async(event ) => {
   }
 }
 
+// componentDidMount(){
+// 
+//     const check = [];
+//
+//     var stringToArray = this.state.cardNumber.split('');
+//     for (var i = 0; i < stringToArray.length; i++) {
+//       if(stringToArray[i] != '_' && stringToArray[i] != ' '){
+//         check.push(stringToArray[i]);
+//       }
+//     }
+//
+//
+//   if(check[0] == '4' && check[1] == '5' && check[2] == '1' && check[3] == '6'){
+//     console.log("visa");
+//   }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
+//    console.log("DISCOVER");
+//   }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
+//
+//   }
+// }
+
+
   render() {
     const pageName = 'Stomble Saver'
     const defaultOption = this.state.months[5];
@@ -160,7 +211,7 @@ addUser = async(event ) => {
            </div>
 
             <div className="card-to-backSide">
-              <h5 className="card-top-name-backSide" > DISCOVER</h5>
+              <h5 className="card-top-name-backSide" > {this.state.cardType}</h5>
             </div>
             </div>
 
@@ -168,7 +219,7 @@ addUser = async(event ) => {
           <div className="cardDisplay">
            <div className="card-top">
              <img src="https://freepikpsd.com/wp-content/uploads/2019/10/credit-card-chip-png-4-Transparent-Images.png" alt="tht "  className="image"/>
-             <h5 className="card-top-name" > DISCOVER</h5>
+             <h5 className="card-top-name" > {this.state.cardType}</h5>
            </div>
 
           <div className="cardNumberDisplay">
