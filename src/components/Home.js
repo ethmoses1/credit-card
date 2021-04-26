@@ -163,26 +163,6 @@ addUser = async(event ) => {
   }
 }
 
-// componentDidMount(){
-// 
-//     const check = [];
-//
-//     var stringToArray = this.state.cardNumber.split('');
-//     for (var i = 0; i < stringToArray.length; i++) {
-//       if(stringToArray[i] != '_' && stringToArray[i] != ' '){
-//         check.push(stringToArray[i]);
-//       }
-//     }
-//
-//
-//   if(check[0] == '4' && check[1] == '5' && check[2] == '1' && check[3] == '6'){
-//     console.log("visa");
-//   }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
-//    console.log("DISCOVER");
-//   }else if (check[0] == '6' && check[1] == '0' && check[2] == '1' && check[3] == '1') {
-//
-//   }
-// }
 
 
   render() {
