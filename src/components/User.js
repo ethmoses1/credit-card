@@ -27,25 +27,38 @@ cvvSelectFront(e){
 
 fetchCard (e){
   e.preventDefault();
-  this.setState({cardName: ''});
+  if(this.state.cardName){
+    this.setState({cardName: ''});
+    this.setState({cardNumber: ''});
+    this.setState({year: ''});
+    this.setState({month: ''});
+    this.setState({cvv: ''})
+  }
 
   const db = firestore;
   const docRef = db.collection("users")
   docRef.get().then((querySnapShot) =>{
     const users = [];
     querySnapShot.forEach((user) => {
-      if(user.data().cardName.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
-        console.log(user.data())
-        this.setState({cardName: user.data().cardName})
-        this.setState({cardNumber: user.data().cardNumber})
-        this.setState({year: user.data().year})
-        this.setState({month:  user.data().title})
-        this.setState({cvv: user.data().cvv});
+      console.log(user.data().cardName);
 
 
-      }else{
-        users.push(user.data().cardName);
+
+      if (user.data().cardName){
+        if(user.data().cardName.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
+          console.log(user.data())
+          this.setState({cardName: user.data().cardName})
+          this.setState({cardNumber: user.data().cardNumber})
+          this.setState({year: user.data().year})
+          this.setState({month:  user.data().title})
+          this.setState({cvv: user.data().cvv});
+
+
+        }else{
+          users.push(user.data().cardName);
+        }
       }
+
     });
     this.state.cardName ?
     // users.map((user) =>{

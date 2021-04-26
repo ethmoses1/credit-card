@@ -55,19 +55,26 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   width: 8%;
 }
 .date-input{
-  /* display: flex;
-  justify-content: space-between; */
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.date-input-Expiration-date{
+  margin-left: -6px;
+  display: flex;
+  justify-content: space-around;
 }
 .form-group-date{
   margin-right: 8%;
-  display: inline-block;
+  /* display: inline-block; */
 }
 .form-group-year{
   margin-right: 10%;
-  display: inline-block;
+  /* display: inline-block; */
 }
 .form-group-cvv{
-  margin-right: 10%;
+  margin-left: 15%;
   display: inline-block;
 }
 

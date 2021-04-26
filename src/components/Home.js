@@ -22,8 +22,7 @@ class Home extends Component {
       this.maxLengthCheck = this.maxLengthCheck.bind(this);
       this._onChange = this._onChange.bind(this);
       this.addUser = this.addUser.bind(this);
-      this.showMenu = this.showMenu.bind(this);
-      this.closeMenu = this.closeMenu.bind(this);
+
     }
 
 _onChange = (e) => {
@@ -78,36 +77,31 @@ maxLengthCheckForCredit(object){
   }
 }
 
-
-
-addUser = event =>{
+addUser = async(event ) => {
   alert(`A card was submitted:\n Name: ${this.state.cardName} \n card Number: ${this.state.cardNumber} \n Expire: ${this.state.title} / ${this.state.year} \n CVV: ${this.state.cvv}`)
 
   event.preventDefault();
   const db = firestore;
-      db.settings({
-        timestampsInSnapshots: true
-      });
-      const userRef = db.collection("users").add({
-        cardName: this.state.cardName,
-        cardNumber: this.state.cardNumber,
-        title: this.state.title,
-        year: this.state.year,
-        cvv: this.state.cvv
-      });
+      // db.settings({
+      //   timestampsInSnapshots: true
+      //
+      // });
+
+    const userRef =  await db.collection("users").add({
+  cardName: this.state.cardName,
+  cardNumber: this.state.cardNumber,
+  title: this.state.title,
+  year: this.state.year,
+  cvv: this.state.cvv
+});
+      // const userRef = db.collection("users").add({
+      //   cardName: this.state.cardName,
+      //   cardNumber: this.state.cardNumber,
+      //   title: this.state.title,
+      //   year: this.state.year,
+      //   cvv: this.state.cvv
+      // });
 }
-
-showMenu(event) {
-  event.preventDefault();
-
-    this.setState({ showMenu: !this.state.open });
- }
- closeMenu() {
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMenu);
-    });
-  }
-
 
   render() {
     const pageName = 'Stomble Saver'
@@ -117,9 +111,6 @@ showMenu(event) {
         <div className="header-div">
         <Header page = {pageName} />
         </div>
-
-
-
 
         <div className="container">
 
@@ -170,24 +161,31 @@ showMenu(event) {
           <form className="form" onSubmit={this.addUser}>
               <div class="form-group">
                 <label for="formGroupExampleInput">Card Number</label>
-                <MaskedInput  class="form-control" mask="1111  1111  1111  1111"  size="20" placeholder="6011 2312 3890 423" onChange={this._onChange}/>
+                <MaskedInput  class="form-control" mask="1111  1111  1111  1111"  size="20" placeholder="6011 2312 3890 423" onChange={this._onChange} required/>
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput2">Card Name</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="John Doves"  onChange={this.updateInputValueCardName}/>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="John Doves"  onChange={this.updateInputValueCardName} required/>
               </div>
 
            <div className="date-input">
-            <div class="form-group-date">
-                <DropdownButton title={this.state.title} id="menu-align-right" onSelect={this.handleSelectMonth}>{this.state.months.map((month) =>
-                    <Dropdown.Item eventKey={month}>{month}</Dropdown.Item>
-            )}</DropdownButton>
-          </div>
-          <div class="form-group-year">
-              <DropdownButton title={this.state.year} id="menu-align-right" onSelect={this.handleSelectYear}>{this.state.years.map((year) =>
-
-                  <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+            <div>
+            <div>
+            <label>Expiration Date</label>
+            </div>
+            <div className="date-input-Expiration-date">
+              <div class="form-group-date">
+                  <DropdownButton title={this.state.title} id="menu-align-right" onSelect={this.handleSelectMonth} required>{this.state.months.map((month) =>
+                      <Dropdown.Item eventKey={month}>{month}</Dropdown.Item>
               )}</DropdownButton>
+            </div>
+            <div class="form-group-year">
+                <DropdownButton title={this.state.year} id="menu-align-right" onSelect={this.handleSelectYear} required>{this.state.years.map((year) =>
+
+                    <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+                )}</DropdownButton>
+            </div>
+            </div>
           </div>
           <div className="form-group-cvv">
             <label >CVV</label>
