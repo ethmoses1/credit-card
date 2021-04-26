@@ -257,7 +257,7 @@ text-align: right;
   margin: auto;
 }
 
-@media only screen and (max-width:620px) {
+@media only screen and (max-width:768px) {
   /* For mobile phones: */
   .form-div {
     /* margin-top: -10%; */
@@ -296,5 +296,17 @@ text-align: right;
     margin: auto;
     font-size: 18px;
     align-items: center;
+  }
+  .Expires{
+    margin-left: 15px;
+    border: 1px solid white;
+    display: inline-block;
+    height: 7vh;
+    position: absolute;
+    margin-top: 5vh;
+    width: 25%;
+  }
+  .expire-year-month-display{
+    width: 100%;
   }
 }

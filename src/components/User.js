@@ -117,7 +117,7 @@ updateInputValueCardName(e){
        </div>
 
       <div className="cardNumberDisplay">
-      <h4> {this.state.cardNumber}</h4>
+      <h4 className="cardNumber-h4-title"> {this.state.cardNumber}</h4>
       </div>
 
         <div className="cardHolder">
@@ -126,7 +126,7 @@ updateInputValueCardName(e){
         </div>
         <div className="Expires">
           <p className="paragraph-card-holder"> Expires</p>
-          <p> {this.state.month + ' / ' + this.state.year } </p>
+          <p className="expire-year-month-display"> {this.state.month + ' / ' + this.state.year } </p>
         </div>
 
       </div>

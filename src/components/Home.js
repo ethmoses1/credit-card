@@ -61,8 +61,19 @@ handleSelectMonth(e){
   }
 
   updateInputValueCardName(e){
-    this.setState({cardName: e.target.value})
-    this.setState({setter: false});
+        if (!Number(e.target.value)){
+
+          this.setState({cardName: e.target.value})
+          this.setState({setter: false});
+        }else{
+          alert("Must input text");
+
+          document.querySelectorAll('input').forEach(
+           input => (input.value = "")
+         );
+
+          return;
+      }
   }
 
   maxLengthCheck(object){
@@ -78,32 +89,49 @@ maxLengthCheckForCredit(object){
 }
 
 addUser = async(event ) => {
+  event.preventDefault();
   document.querySelectorAll('input').forEach(
    input => (input.value = "")
  );
-  alert(`A card was submitted:\n Name: ${this.state.cardName} \n card Number: ${this.state.cardNumber} \n Expire: ${this.state.title} / ${this.state.year} \n CVV: ${this.state.cvv}`)
 
-  event.preventDefault();
-  const db = firestore;
-      // db.settings({
-      //   timestampsInSnapshots: true
-      //
-      // });
+  const check = [];
+  
+  var stringToArray = this.state.cardNumber.split('');
+  for (var i = 0; i < stringToArray.length; i++) {
+    if(stringToArray[i] != '_' && stringToArray[i] != ' '){
+      check.push(stringToArray[i]);
+    }
+  }
 
-    const userRef =  await db.collection("users").add({
-  cardName: this.state.cardName,
-  cardNumber: this.state.cardNumber,
-  title: this.state.title,
-  year: this.state.year,
-  cvv: this.state.cvv
-});
-      // const userRef = db.collection("users").add({
-      //   cardName: this.state.cardName,
-      //   cardNumber: this.state.cardNumber,
-      //   title: this.state.title,
-      //   year: this.state.year,
-      //   cvv: this.state.cvv
-      // });
+
+  if(check.length == 16 ){
+
+    alert(`A card was submitted:\n Name: ${this.state.cardName} \n card Number: ${this.state.cardNumber} \n Expire: ${this.state.title} / ${this.state.year} \n CVV: ${this.state.cvv}`)
+
+    const db = firestore;
+        // db.settings({
+        //   timestampsInSnapshots: true
+        //
+        // });
+
+      const userRef =  await db.collection("users").add({
+    cardName: this.state.cardName,
+    cardNumber: this.state.cardNumber,
+    title: this.state.title,
+    year: this.state.year,
+    cvv: this.state.cvv
+  });
+        // const userRef = db.collection("users").add({
+        //   cardName: this.state.cardName,
+        //   cardNumber: this.state.cardNumber,
+        //   title: this.state.title,
+        //   year: this.state.year,
+        //   cvv: this.state.cvv
+        // });
+  }else{
+    alert("not a valid number")
+    return;
+  }
 }
 
   render() {
@@ -153,7 +181,7 @@ addUser = async(event ) => {
             </div>
             <div className="Expires">
               <p className="paragraph-card-holder"> Expires</p>
-              <p> {this.state.title + ' / ' + this.state.year } </p>
+              <p className="expire-year-month-display"> {this.state.title + ' / ' + this.state.year } </p>
             </div>
 
           </div>
@@ -192,7 +220,7 @@ addUser = async(event ) => {
           </div>
           <div className="form-group-cvv">
             <label >CVV</label>
-            <input type="number" maxLength = "3" min={100} max="999" Styles={false} onInput={this.maxLengthCheck} required class="form-control" value={this.state.cvv} onChange={this.updateInputValue} placeholder="cvv" m/>
+            <input type="number" maxLength = "3"  max={999} Styles={false} onInput={this.maxLengthCheck} required class="form-control" value={this.state.cvv} onChange={this.updateInputValue} placeholder="cvv" m/>
           </div>
          </div>
          <button className="submit-button">Submit</button>
