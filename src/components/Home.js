@@ -33,13 +33,13 @@ _onChange = (e) => {
       }
 
 handleSelectMonth(e){
-    console.log(e);
+
     this.setState({value: e});
     this.setState({title: e});
     this.setState({setter: false});
   }
   handleSelectYear(e){
-      console.log(e);
+
       this.setState({value: e});
       this.setState({year: e});
       this.setState({setter: false});
@@ -53,7 +53,7 @@ handleSelectMonth(e){
   }
 
   updateInputValueCardNumber(e){
-    console.log(e.target.value);
+    // console.log(e.target.value);
     let x = e.target.value;
     this.setState({cardNumber: e.target.value})
     this.setState({setter: false});
@@ -78,6 +78,9 @@ maxLengthCheckForCredit(object){
 }
 
 addUser = async(event ) => {
+  document.querySelectorAll('input').forEach(
+   input => (input.value = "")
+ );
   alert(`A card was submitted:\n Name: ${this.state.cardName} \n card Number: ${this.state.cardNumber} \n Expire: ${this.state.title} / ${this.state.year} \n CVV: ${this.state.cvv}`)
 
   event.preventDefault();

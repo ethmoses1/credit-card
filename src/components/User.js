@@ -27,6 +27,11 @@ cvvSelectFront(e){
 
 fetchCard (e){
   e.preventDefault();
+
+  //reset the input values
+   document.querySelectorAll('input').forEach(
+    input => (input.value = "")
+  );
   if(this.state.cardName){
     this.setState({cardName: ''});
     this.setState({cardNumber: ''});
@@ -40,35 +45,27 @@ fetchCard (e){
   docRef.get().then((querySnapShot) =>{
     const users = [];
     querySnapShot.forEach((user) => {
-      console.log(user.data().cardName);
-
-
 
       if (user.data().cardName){
         if(user.data().cardName.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
-          console.log(user.data())
+          // console.log(user.data())
           this.setState({cardName: user.data().cardName})
           this.setState({cardNumber: user.data().cardNumber})
           this.setState({year: user.data().year})
           this.setState({month:  user.data().title})
           this.setState({cvv: user.data().cvv});
-
-
+          this.setState({setterForInput: false});
         }else{
           users.push(user.data().cardName);
         }
       }
 
     });
-    this.state.cardName ?
-    // users.map((user) =>{
-    //   if(user.toLowerCase() === this.state.cardNameSearch.toLowerCase()){
-        console.log("user found")
-      // }{
 
-      //   console.log('No card information by that name');
-      // }
-    // })
+    //print error information
+    this.state.cardName ?
+        console.log("")
+
     : this.setState({error: 'No card information by that name'});;
 
   })
@@ -83,7 +80,7 @@ fetchCard (e){
 }
 
 updateInputValueCardName(e){
-  this.setState({cardNameSearch: e.target.value})
+    this.setState({cardNameSearch: e.target.value})
 }
 
 
