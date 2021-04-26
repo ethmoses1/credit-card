@@ -146,7 +146,7 @@ addUser = async(event ) => {
         <div className="container">
 
         <div >
-          <h3 className="header-stomble paragraph-card-holder">Save Your Card Details</h3>
+          <p className="header-stomble paragraph-card-holder">Save Your Card Details</p>
 
          {this.state.setter ?
            <div className="cardDisplay">
