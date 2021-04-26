@@ -144,7 +144,7 @@ addUser = async(event ) => {
            </div>
 
           <div className="cardNumberDisplay">
-          <h4> {this.state.cardNumber}</h4>
+          <h4 className="cardNumber-h4-title"> {this.state.cardNumber}</h4>
           </div>
 
             <div className="cardHolder">

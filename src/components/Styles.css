@@ -51,8 +51,8 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   background-color: white;
   color: black;
   border: 1px solid black;
-  min-width: 5.5em;
-  width: 8%;
+  width: 5.5em;
+  /* width: 14vw */
 }
 .date-input{
 
@@ -113,40 +113,7 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   position: relative;
 
 }
-@media screen and (max-width: 1024px) {
-cardDisplay{
-  border: 1px solid black;
-  width: 15%;
-  margin: auto;
-  border-radius: 5px;
-  height: 15vh;
-  background-image: url("credit.png");
-  color: white;
-  font-size: 11px;
-  margin-bottom: -5vh;
-  z-index: 5;
-  position: relative;
-}
-.heading-card-holder-h{
-  text-align: right;
-  background-color: white;
-  color: black;
-  margin: 0;
-  width: 100%;
-  margin: auto;
-  padding: 5px;
-  border-redius: 5px;
-  height: 4.5vh;
-}
-.header-heading{
- margin-left: 5%;
-}
-.header{
-  font-size: 18px;
-  margin: 0;
-  text-align: center;
-}
-}
+
 .cardNumberDisplay{
   /* margin-top: 10px; */
   align-items: center;
@@ -288,4 +255,46 @@ text-align: right;
   width: 90%;
   text-align: center;
   margin: auto;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .form-div {
+    /* margin-top: -10%; */
+    border: 1px solid #71C8FF;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 2px 2px 45px 4px #71c8ff;
+    border-radius: 10px;
+    /* position: absolute; */
+}
+  #menu-align-right{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    /* min-width: 16vw; */
+    width: 14vw;
+  }
+  .cardDisplay{
+    width: 90%;
+  }
+  .cardNumber-h4-title{
+    font-size: 1.4rem;
+  }
+  .card-top-name {
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 36%;
+    display: inline-block;
+  }
+  .header {
+    margin: 0;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    align-items: center;
+  }
 }
