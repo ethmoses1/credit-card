@@ -66,6 +66,7 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   justify-content: space-around;
 }
 .form-group-date{
+  /* width: 100%; */
   margin-right: 8%;
   /* display: inline-block; */
 }
@@ -74,7 +75,8 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   /* display: inline-block; */
 }
 .form-group-cvv{
-  margin-left: 15%;
+  width: 30%;
+  margin-left: 9%;
   display: inline-block;
 }
 
@@ -140,6 +142,9 @@ button#menu-align-right.dropdown-toggle.btn.btb-primary{
   position: absolute;
   margin-top: 5vh;
   width: 20%;
+}
+.expiration-label{
+  margin-left: -2vw;
 }
 .paragraph-card-holder{
   margin: 0;
@@ -270,13 +275,14 @@ text-align: right;
     /* position: absolute; */
 }
   #menu-align-right{
+    margin-left: 15px;
     display: flex;
     justify-content: space-between;
     background-color: white;
     color: black;
     border: 1px solid black;
     /* min-width: 16vw; */
-    width: 14vw;
+    width: 20vw;
   }
   .cardDisplay{
     width: 90%;
@@ -299,7 +305,7 @@ text-align: right;
   }
   .Expires{
     margin-left: 15px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: inline-block;
     height: 7vh;
     position: absolute;
@@ -308,5 +314,28 @@ text-align: right;
   }
   .expire-year-month-display{
     width: 100%;
+  }
+  .form-group-cvv{
+    width: 30%;
+    margin-left: 9%;
+    display: inline-block;
+  }
+  .date-input-Expiration-date{
+    /* margin-left: -6px; */
+    /* display: flex;
+    justify-content: space-around; */
+  }
+  .header-container-nav{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .header{
+    margin-left: -10%;
+    text-align: center;
+  }
+  .header-heading{
+    margin-top: 3%;
+   margin-left: 15%;
   }
 }

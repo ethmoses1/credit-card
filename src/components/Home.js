@@ -95,7 +95,7 @@ addUser = async(event ) => {
  );
 
   const check = [];
-  
+
   var stringToArray = this.state.cardNumber.split('');
   for (var i = 0; i < stringToArray.length; i++) {
     if(stringToArray[i] != '_' && stringToArray[i] != ' '){
@@ -146,7 +146,7 @@ addUser = async(event ) => {
         <div className="container">
 
         <div >
-          <h3 className="header-stomble">Save Your Card Details</h3>
+          <h3 className="header-stomble paragraph-card-holder">Save Your Card Details</h3>
 
          {this.state.setter ?
            <div className="cardDisplay">
@@ -202,7 +202,7 @@ addUser = async(event ) => {
            <div className="date-input">
             <div>
             <div>
-            <label>Expiration Date</label>
+            <label className="expiration-label">Expiration Date</label>
             </div>
             <div className="date-input-Expiration-date">
               <div class="form-group-date">
